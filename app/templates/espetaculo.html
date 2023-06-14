@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ espetaculo.eEspetaculoId }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>espetaculo info</h2>
+  <p>
+    <b>espetaculoId: </b>{{ espetaculo.eEspetaculoId }}
+  </p>
+  <p>
+    <b>Palco: </b>{{ espetaculo.pNome }}
+  </p>
+  <p>
+    <b>Data: </b>{{ espetaculo.eData }}
+  </p>
+  <h3>Cantores neste espetáculo:</h3>
+  <table> 
+    <tr>
+      <th><b>Nome</b></th>
+      <th><b>Id</b></th>
+      <th><b>Nacionalidade</b></th>
+    </tr>
+    {% for cantor in cantores %}
+      <tr>
+        <td>{{ cantor.cNome }}</td>
+        <td>{{ cantor.cCantId }}</td>
+        <td>{{ cantor.cNacionalidade }}</td>
+      </tr>
+    {% endfor %}
+    </table>
+    <h3>Músicas neste espetáculo:</h3>
+  <table> 
+    <tr>
+      <th><b>Nome da Música</b></th>
+    </tr>
+    {% for musica in musicas %}
+      <tr>
+        <td><a href="/musicas/{{ musica.mMusicaId }}">{{ musica.mNome }}</a></td>
+      </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

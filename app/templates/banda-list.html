@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Bandas{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table> 
+  <tr>
+    <th><b>Id</b></th>
+    <th><b>Nome</b></th>
+    <th><b>País</b></th>
+    <th><b>Nº de integrantes</b></th>
+   </tr>
+   
+  {% for banda in bandas %}
+    <tr>
+      <td><a href="/bandas/{{ banda.BandaId }}">{{ banda.BandaId }}</a></td>
+      <td>{{ banda.Nome }}</td>
+      <td>{{ banda.Nacionalidade }}</td>
+      <td>{{ banda.NdeIntegrantes }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

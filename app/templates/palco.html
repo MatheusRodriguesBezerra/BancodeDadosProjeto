@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ palco.Nome }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Palco info:</h2>
+  <p>
+    <b>PalcoId: </b>{{ palco.PalcoId }}
+  </p>
+  <p>
+    <b>Nome: </b>{{ palco.Nome }}
+  </p>
+  <h3>Cantores que estiveram presentes neste palco:</h3>
+  <table> 
+    <tr>
+      <th><b>Id</b></th>
+      <th><b>Nome</b></th>
+    </tr>
+    {% for c in cantores %}
+      <tr>
+        <td><a href="/cantores/{{ c.cCantId }}">{{ c.cCantId }}</a></td>
+        <td>{{ c.cNome }}</td>
+      </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

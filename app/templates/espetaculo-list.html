@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Espetáculos:{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table> 
+  <tr>
+    <th><b>Id</b></th>
+    <th><b>Palco</b></th>
+    <th><b>Data</b></th>
+  </tr>
+  {% for espetaculo in espetaculos %}
+    <tr>
+      <td><a href="/espetaculos/{{ espetaculo.eEspetaculoId }}">{{ espetaculo.eEspetaculoId }}</a></td>
+      <td><a href="/palcos/{{ espetaculo.pPalcoId }}">{{ espetaculo.pNome }}</a></td>
+      <td>{{ espetaculo.eData }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

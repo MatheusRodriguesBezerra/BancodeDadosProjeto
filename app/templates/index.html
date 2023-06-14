@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Rock in Rio IX database {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<h2>Sobre</h2>
+<p>Esta aplicação demonstra o uso do Rock in Rio IX como base de dados.</p>
+
+<h2>Estatísticas da base de dados</h2>
+<table>
+<tr>
+  <th>Items</th>
+  <th>Soma</th>
+</tr>
+<tr>
+  <td>Cantores</td>
+  <td>{{ stats.cantores }}</td>
+</tr>
+<tr>
+  <td>Bandas</td>
+  <td>{{ stats.bandas }}</td>
+</tr>
+<tr>
+  <td>Musicas</td>
+  <td>{{ stats.musicas }}</td>
+</tr>
+<tr>
+  <td>Palcos</td>
+  <td>{{ stats.palcos }}</td>
+</tr>
+<tr>
+  <td>Espetaculos</td>
+  <td>{{ stats.espetaculos }}</td>
+</tr>
+</table>
+
+
+<h2>Funcionalidades</h2>
+
+<h3>Cantores</h3>
+<p>
+   <a href="/cantores">Listar tudo</a> 
+</p>
+<p>Tenha mais informações:
+<form name="mid" action="javascript:window.open('/cantores/'+document.forms['mid'].elements['id'].value,'_self')">
+   Cantor Id:<input placeholder="3" name="id" type="number" min="1"/><input type="submit" value="get"/>
+</form>
+</p>
+  
+<p>Buscar pelo nome:
+  <form name="asearch" action="javascript:window.open('/cantores/search/'+document.forms['asearch'].elements['expr'].value,'_self')">
+    <input name="expr" id="expr" placeholder="Michael Jackson" required/>
+    <input type="submit" value="search"/>
+  </form>
+</p>
+
+<h3>Bandas</h3>
+<p>
+   <a href="/bandas">Listar tudo</a>
+</p>
+<p>Tenha mais informações:
+<form name="aid" action="javascript:window.open('/bandas/'+document.forms['aid'].elements['id'].value,'_self')">
+   Banda Id:<input placeholder="2" name="id" type="number" min="1"/><input type="submit" value="get"/>
+</form>
+</p>
+  
+<p>Buscar pelo nome:
+  <form name="msearch" action="javascript:window.open('/bandas/search/'+document.forms['msearch'].elements['expr'].value,'_self')">
+    <input name="expr" id="expr" placeholder="Scorpions" required/>
+    <input type="submit" value="search"/>
+</form>
+
+<h3>Musicas</h3>
+<p>
+   <a href="/musicas">Listar tudo</a>
+</p>
+
+<p>Tenha mais informações:
+<form name="gid" action="javascript:window.open('/musicas/'+document.forms['gid'].elements['id'].value,'_self')">
+   Musica Id:<input placeholder="1" name="id" type="number" min="1"/><input type="submit" value="get"/>
+</form>
+</p>
+
+<h3>Palcos</h3>
+<p>
+   <a href="/palcos">Listar tudo</a>
+</p>
+
+<h3>Espetaculos</h3>
+<p>
+   <a href="/espetaculos">Listar tudo</a>
+</p>
+{% endblock %}

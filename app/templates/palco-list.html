@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Palcos{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table> 
+  <tr>
+    <th><b>Id</b></th>
+    <th><b>Nome</b></th>
+   </tr>
+   
+  {% for a in palcos %}
+    <tr>
+      <td><a href="/palcos/{{ a.PalcoId }}">{{ a.PalcoId }}</a></td>
+      <td>{{ a.Nome }}</td>
+    </tr>
+  {% endfor %} 
+  </table>
+{% endblock %}

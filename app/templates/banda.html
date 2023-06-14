@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ banda.Nome }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Banda info</h2>
+  <p>
+    <b>BandaId: </b>{{ banda.BandaId }}
+  </p>
+  <p>
+    <b>Nome: </b>{{ banda.Nome }}
+  </p>
+  <p>
+    <b>País: </b>{{ banda.Nacionalidade }}
+  </p>
+  <p>
+    <b>Numero de integrantes: </b>{{ banda.NdeIntegrantes }}
+  </p>
+  <p>
+    <b>Integrantes da banda: </b><ul>
+    {% for cantor in cantores %}      
+      <li><a href="/cantores/{{ cantor.cCantId }}">{{ cantor.cNome }}</a></li>
+    {% endfor %}
+    </ul>
+  </p>
+  
+{% endblock %}
